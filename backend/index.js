@@ -4,7 +4,7 @@ const app = express();
 app.get('/', function (req, res) {
     res.json({
         greeting: 'hello',
-        friend: 'Tom',
+        friend: 'Tom Perez',
     });
 });
 
