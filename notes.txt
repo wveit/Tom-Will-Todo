@@ -1,0 +1,53 @@
+
+
+Backend
+-----------------
+NodeJS & Express
+MongoDB & mongoose
+express-validator
+bcrypt
+jsonwebtoken
+
+
+Auth:
+- Register a new user    -> Issue a JWT
+- Validation for registration
+- Sign in an existing user  -> Issue a JWT
+- Validation for sign in
+- Get user info (once logged in) 
+
+Todos:
+- Create a new todo item
+- Get all todo items
+- Edit a todo item
+- Get a todo item details by id
+- Delete a todo item
+
+- Filter todos by titleText, ...
+
+
+DB
+----------------------------
+User:
+- id
+- name
+- email (unique)
+- hashed password
+
+Todo:
+- id
+- title
+- owner
+- dateCreated
+- dateCompleted
+- dateDeleted
+- orderNumber             
+
+
+
+Front End
+------------------
+Create-React-App
+React
+Redux
+React-Beautiful-DND
