@@ -4,6 +4,7 @@ const app = express();
 const userRouter = require('./routers/users');
 const todosRouter = require('./routers/todos');
 
+app.use(express.json());
 app.use(userRouter);
 app.use(todosRouter);
 
