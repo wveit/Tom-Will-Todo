@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const bcrypt = require('bcryptjs');
 
 // registration endpoint
 router.post('/users', async function (req, res) {
     const { name, email, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 8);
     console.log(req.body);
     const newUser = await User.create({
         name,
         email,
-        hashedPassword: password,
+        hashedPassword,
     });
     res.json(newUser);
 });
