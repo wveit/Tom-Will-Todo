@@ -2,18 +2,22 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const jwtSecret = 'this is my jwt secret';
 
 // registration endpoint
 router.post('/users', async function (req, res) {
     const { name, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 8);
-    console.log(req.body);
     const newUser = await User.create({
         name,
         email,
         hashedPassword,
     });
-    res.json(newUser);
+    const id = newUser.id;
+    const token = jwt.sign({ id }, jwtSecret);
+    res.json({ token });
 });
 
 // get current user
